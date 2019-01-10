@@ -18,8 +18,8 @@ type LinkedList struct {
 
 func NewLinkedList() *LinkedList {
 	list := &LinkedList{
-		head: &LinkedListNode{value: nil},
-		tail: &LinkedListNode{value: nil},
+		head: &LinkedListNode{},
+		tail: &LinkedListNode{},
 	}
 	list.head.next = list.tail
 	list.tail.prev = list.head
@@ -66,3 +66,4 @@ func (l *LinkedList) Iterate() chan *LinkedListNode {
 
 	return ch
 }
+
