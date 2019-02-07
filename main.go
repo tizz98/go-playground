@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/tizz98/go-playground/counter"
+	"github.com/tizz98/go-playground/defaultdict"
 	"github.com/tizz98/go-playground/ordereddict"
 )
 
@@ -22,5 +23,7 @@ func main() {
 	for i, item := range c.MostCommon(5) {
 		fmt.Printf("%d: %#v seen %d time(s)\n", i+1, item.Value, item.Count)
 	}
-}
 
+	dict := defaultdict.New(defaultdict.IntDefault)
+	fmt.Printf("foo default: %d\n", dict.Get("foo"))
+}
