@@ -1,4 +1,4 @@
-package collections
+package counter
 
 import (
 	"container/heap"
@@ -60,7 +60,7 @@ type Counter struct {
 	mutex   sync.Mutex
 }
 
-func NewCounter() *Counter {
+func New() *Counter {
 	return &Counter{
 		mapping: map[interface{}]*counterItem{},
 		heap:    make(counterHeap, 0),
@@ -125,3 +125,4 @@ func (c *Counter) addItem(item interface{}) {
 		heap.Push(&c.heap, cItem)
 	}
 }
+

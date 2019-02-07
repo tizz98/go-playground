@@ -1,4 +1,4 @@
-package collections
+package counter
 
 import (
 	"testing"
@@ -8,12 +8,12 @@ import (
 
 func TestCounter_MostCommon(t *testing.T) {
 	t.Run("NoValues", func(t *testing.T) {
-		counter := NewCounter()
+		counter := New()
 		assert.Empty(t, counter.MostCommon(5))
 	})
 
 	t.Run("NGreaterThanValues", func(t *testing.T) {
-		counter := NewCounter()
+		counter := New()
 		counter.AddItems("foo", "foo", "foo", "baz", "bar", "bar")
 		assert.Equal(t, []CounterItem{
 			{"foo", 3},
@@ -23,7 +23,7 @@ func TestCounter_MostCommon(t *testing.T) {
 	})
 
 	t.Run("NLessThanValues", func(t *testing.T) {
-		counter := NewCounter()
+		counter := New()
 		counter.AddItems("foo", "foo", "foo", "baz", "bar", "bar")
 		assert.Equal(t, []CounterItem{
 			{"foo", 3},
@@ -31,7 +31,7 @@ func TestCounter_MostCommon(t *testing.T) {
 	})
 
 	t.Run("NEqualToValues", func(t *testing.T) {
-		counter := NewCounter()
+		counter := New()
 		counter.AddItems("foo", "foo", "foo", "baz", "bar", "bar")
 		assert.Equal(t, []CounterItem{
 			{"foo", 3},
@@ -41,7 +41,7 @@ func TestCounter_MostCommon(t *testing.T) {
 	})
 
 	t.Run("ValuesExistAfterGetting", func(t *testing.T) {
-		counter := NewCounter()
+		counter := New()
 		counter.AddItems("foo", "foo", "foo", "baz", "bar", "bar")
 		assert.Equal(t, []CounterItem{
 			{"foo", 3},
@@ -63,14 +63,15 @@ func TestCounter_MostCommon(t *testing.T) {
 
 func TestCounter_Get(t *testing.T) {
 	t.Run("NonExistentItem", func(t *testing.T) {
-		counter := NewCounter()
+		counter := New()
 		assert.Equal(t, 0, counter.Get("foo"))
 	})
 
 	t.Run("ExistingItem", func(t *testing.T) {
-		counter := NewCounter()
+		counter := New()
 		counter.AddItems("foo", "bar", "foo")
 		assert.Equal(t, 2, counter.Get("foo"))
 		assert.Equal(t, 1, counter.Get("bar"))
 	})
 }
+

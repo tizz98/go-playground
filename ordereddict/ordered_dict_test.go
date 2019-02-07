@@ -1,4 +1,4 @@
-package collections
+package ordereddict
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 )
 
 func TestOrderedDict(t *testing.T) {
-	d := NewOrderedDict()
+	d := New()
 	d.Set("foo", "bar")
 	d.Set("test", 123)
 
