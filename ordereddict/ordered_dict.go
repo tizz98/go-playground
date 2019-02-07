@@ -1,14 +1,16 @@
-package collections
+package ordereddict
+
+import "github.com/tizz98/go-playground/linkedlist"
 
 type OrderedDict struct {
-	lookup map[string]*LinkedListNode
-	list   *LinkedList
+	lookup map[string]*linkedlist.LinkedListNode
+	list   *linkedlist.LinkedList
 }
 
-func NewOrderedDict() *OrderedDict {
+func New() *OrderedDict {
 	return &OrderedDict{
-		lookup: make(map[string]*LinkedListNode),
-		list:   NewLinkedList(),
+		lookup: make(map[string]*linkedlist.LinkedListNode),
+		list:   linkedlist.New(),
 	}
 }
 

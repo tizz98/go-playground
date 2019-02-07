@@ -1,4 +1,4 @@
-package collections
+package linkedlist
 
 type LinkedListNode struct {
 	next *LinkedListNode
@@ -16,7 +16,7 @@ type LinkedList struct {
 	tail *LinkedListNode
 }
 
-func NewLinkedList() *LinkedList {
+func New() *LinkedList {
 	list := &LinkedList{
 		head: &LinkedListNode{},
 		tail: &LinkedListNode{},

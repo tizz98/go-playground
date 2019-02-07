@@ -1,4 +1,4 @@
-package collections
+package linkedlist
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 
 func TestLinkedList(t *testing.T) {
 	t.Run("Iteration", func(t *testing.T) {
-		l := NewLinkedList()
+		l := New()
 		l.Append("foo")
 		l.Append("Bar")
 
@@ -22,7 +22,7 @@ func TestLinkedList(t *testing.T) {
 	})
 
 	t.Run("Removal", func(t *testing.T) {
-		l := NewLinkedList()
+		l := New()
 		l.Append("foo")
 		bar := l.Append("Bar")
 		l.Append("baz")
